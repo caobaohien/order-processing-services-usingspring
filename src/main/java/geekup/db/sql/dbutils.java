@@ -81,6 +81,20 @@ public class dbutils implements Serializable {
 			return false;
 		}
 	}
+	
+	public boolean update(PreparedStatement stmt) {
+		try {
+			System.out.println("__SQL Update : " + stmt);
+			stmt.executeUpdate();
+
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("__Exception Update: " + e.getMessage());
+
+			return false;
+		}
+	}
 
 	public int execProceduce(String procName, String[] param) {
 		try {
